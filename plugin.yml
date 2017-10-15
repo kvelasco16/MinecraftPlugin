@@ -1,0 +1,6 @@
+name: EventHandle
+version: 1.0
+main: main.PluginMain
+commands: 
+  apple:
+    description: gives golden apple to player
