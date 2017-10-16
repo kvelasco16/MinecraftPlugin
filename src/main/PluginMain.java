@@ -26,12 +26,12 @@ public class PluginMain extends JavaPlugin
 	
 	public boolean onCommand(CommandSender theSender, Command cmd, String commandLabel, String [] args)
 	{
-		Player thePlayer = (Player) theSender;
+		Player player = (Player) theSender;
 		if(commandLabel.equalsIgnoreCase("apple"))
 		{
-			thePlayer.getInventory().clear();
+			player.getInventory().clear();
 			ItemStack apple = new ItemStack(Material.GOLDEN_APPLE,1);
-			PlayerInventory inv = thePlayer.getInventory();
+			PlayerInventory inv = player.getInventory();
 			inv.setItem(8, apple);
 		}
 		return false;
