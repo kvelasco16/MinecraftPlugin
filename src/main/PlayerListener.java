@@ -48,7 +48,8 @@ public class PlayerListener implements Listener
 		{
 			event.setDeathMessage("can't even survive while invisible trash");
 		}
-		if(event.getDeathMessage().contains("fell from a high place"))
+		
+		else if(event.getDeathMessage().contains("fell from a high place"))
 		{
 			event.setDeathMessage(ChatColor.DARK_AQUA + player.getName() + ChatColor.DARK_RED + " doesn't understand physics and failed calc II twice" );
 		}
