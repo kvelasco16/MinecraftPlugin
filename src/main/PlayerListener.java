@@ -26,9 +26,12 @@ public class PlayerListener implements Listener
 		Player player = event.getPlayer();
 		if(player.getItemInHand().getType() == Material.GOLDEN_APPLE)
 		{
-			player.getActivePotionEffects().clear();
+			player.removePotionEffect(PotionEffectType.ABSORPTION);
+			player.removePotionEffect(PotionEffectType.REGENERATION);
+
 			event.getPlayer().sendMessage(ChatColor.BLUE + "You are now invisible!");
 			player.addPotionEffect(new PotionEffect(PotionEffectType.INVISIBILITY, 100, 1));
+		
 		}
 	}
 
@@ -39,16 +42,16 @@ public class PlayerListener implements Listener
 		Player player = event.getPlayer();
 		event.getPlayer().sendMessage(ChatColor.LIGHT_PURPLE + "Welcome " + ChatColor.DARK_AQUA + player.getName() + ChatColor.LIGHT_PURPLE +  "!");
 	}
-	
+
 	@EventHandler
 	public void death(PlayerDeathEvent event)
 	{
 		Player player = event.getEntity();
-		if (player.getActivePotionEffects() == PotionEffectType.INVISIBILITY)
+		if (player.hasPotionEffect(PotionEffectType.INVISIBILITY) == true)
 		{
-			event.setDeathMessage("can't even survive while invisible trash");
+			event.setDeathMessage(player.getName() + " can't even survive while invisible trash");
 		}
-		
+
 		else if(event.getDeathMessage().contains("fell from a high place"))
 		{
 			event.setDeathMessage(ChatColor.DARK_AQUA + player.getName() + ChatColor.DARK_RED + " doesn't understand physics and failed calc II twice" );
